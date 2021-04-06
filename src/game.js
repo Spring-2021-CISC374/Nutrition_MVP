@@ -1,6 +1,6 @@
 var game;
-var gameWidth = 512;
-var gameHeight = 750;
+var gameWidth = 935;
+var gameHeight = 600;
 
 var config = {
   type: Phaser.CANVAS,
