@@ -33,6 +33,17 @@ class levelSetting extends Phaser.Scene {
     })
     .setInteractive()
     .on('pointerdown', () => this.updateToExpertScene());
+
+    const backButton = this.add.text(config.width - 200, config.height - 40, 'Back To Main Page', {
+      font: "20px Arial",
+      fill: 'black'
+      })
+      .setInteractive()
+      .on('pointerdown', () => this.updateScene());
+}
+
+updateScene() {
+  this.scene.start("GameMenu");
 }
 
   updateToEasyScene() {

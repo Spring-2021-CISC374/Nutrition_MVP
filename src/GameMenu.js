@@ -12,9 +12,9 @@ class GameMenu extends Phaser.Scene {
       fill: "black"
     });
 
-    const startGameButton = this.add.text(config.width/2-100 , config.height/2-20, 'Start Game', {
-      font: "40px Arial",
-      fill: '#0f0'
+    const startGameButton = this.add.text(config.width/2-180 , config.height/2-20, 'Start Game', {
+      font: "80px Arial",
+      fill: 'black'
       })
       .setInteractive()
       .on('pointerdown', () => this.updateSettingDiffScene());

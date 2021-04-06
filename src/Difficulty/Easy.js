@@ -5,9 +5,9 @@ class Easy extends Phaser.Scene {
     }
   
     create() {
-      const backButton = this.add.text(config.width - 240, config.height - 40, 'ChangeDifficulty!', {
-        font: "30px Arial",
-        fill: '#0f0'
+      const backButton = this.add.text(config.width - 200, config.height - 40, 'Back To Mode Menu', {
+        font: "20px Arial",
+        fill: 'black'
         })
         .setInteractive()
         .on('pointerdown', () => this.updateScene());
