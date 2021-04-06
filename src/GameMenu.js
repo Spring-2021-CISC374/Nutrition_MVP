@@ -24,5 +24,4 @@ class GameMenu extends Phaser.Scene {
     this.scene.start("levelSetting");
   }
 
-
 } 
