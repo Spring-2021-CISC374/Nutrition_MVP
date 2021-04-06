@@ -1,0 +1,17 @@
+Food Calorie
+apple 95
+chicken 104
+cookie 143
+cupcake 257
+donuts 250
+friedegg 109
+hamgurger 330
+hotdog 178
+icecream 137
+juice 95
+milk 103
+pizza 285
+popcorn 106
+steak 679
+sushi 75
+taco 156
