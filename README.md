@@ -9,4 +9,4 @@ Jack Cottrell -
 
 Lida Zhao     -
 
-Yifan Yang    -
+Yifan Yang    - Easy mode
