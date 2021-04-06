@@ -9,4 +9,4 @@ Jack Cottrell -
 
 Lida Zhao     -
 
-Yifan Yang    - Easy mode
+Yifan Yang    - Menu Scene, food and figure images, food database
