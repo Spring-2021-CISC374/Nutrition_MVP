@@ -7,7 +7,7 @@ var config = {
   width: gameWidth,
   height: gameHeight,
   backgroundColor: 0xffffff,
-  scene: [Loading, GameMenu, levelSetting, Easy, Normal, Hard, Expert],
+  scene: [Loading, GameMenu, Aboutus, level, Easy, Normal, Hard, Expert],
   pixelArt: true,
   physics: {
     default: "arcade",
