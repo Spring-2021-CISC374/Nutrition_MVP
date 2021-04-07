@@ -33,7 +33,7 @@ class Expert extends Phaser.Scene {
     }
   
     updateScene() {
-      this.scene.start("levelSetting");
+      this.scene.start("level");
     }
     Info(){
       alert("This is the Expert mode, no tips here!");

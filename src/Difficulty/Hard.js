@@ -33,7 +33,7 @@ class Hard extends Phaser.Scene {
     }
   
     updateScene() {
-      this.scene.start("levelSetting");
+      this.scene.start("level");
     }
     Info(){
       alert("This is the Hard mode, no tips here!");

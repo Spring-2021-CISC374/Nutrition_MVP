@@ -6,6 +6,7 @@ class GameMenu extends Phaser.Scene {
   create() {
 
     this.background = this.add.tileSprite(0, 0, config.width, config.height, "map").setOrigin(0).setScale(2);
+    this.background.tilePositionX += 200; 
 
     this.Title = this.add.image(110, 100, "Title").setOrigin(0).setScale(0.5)
 
@@ -57,7 +58,7 @@ class GameMenu extends Phaser.Scene {
     this.scene.start("Expert");
   }
   updateScene() {
-    this.scene.start("Aboutus");
+    this.scene.start("level");
   }
 
 }
