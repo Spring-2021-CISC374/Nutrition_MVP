@@ -43,6 +43,7 @@ class GameMenu extends Phaser.Scene {
     this.background.tilePositionX += 0.6;
   }
 
+
   updateToEasyScene() {
     this.scene.start("Easy");
   }
