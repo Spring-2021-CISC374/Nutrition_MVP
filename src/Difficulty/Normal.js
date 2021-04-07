@@ -34,7 +34,7 @@ class Normal extends Phaser.Scene {
     }
   
     updateScene() {
-      this.scene.start("level");
+      this.scene.start("GameMenu");
     }
     appleInfo(){
       alert("This is an apple about 150 grams, edible parts about 135 grams, contains 60 kcal of energy");
