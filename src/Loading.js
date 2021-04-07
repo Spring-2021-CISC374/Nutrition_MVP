@@ -5,7 +5,6 @@ class Loading extends Phaser.Scene {
   
     preload(){
       this.load.image("background", "asserts/background.png");
-      this.load.image("table","asserts/images.png");
       this.load.image("apple","asserts/food/apple.jpg");
       this.load.image("chicken","asserts/food/chicken.jpg");
       this.load.image("cook","asserts/food/cookie.jpg");
@@ -18,6 +17,16 @@ class Loading extends Phaser.Scene {
       this.load.image("steak","asserts/food/steak.jpg");
       this.load.image("sushi","asserts/food/sushi.jpg");
       this.load.image("taco","asserts/food/taco.jpg");
+      this.load.image("Title","asserts/NUTRITION RECIPES.png");
+      this.load.image("map","asserts/map.jpg");
+      this.load.image("easy","asserts/Easy.png");
+      this.load.image("normal","asserts/Normal.png");
+      this.load.image("hard","asserts/Hard.png");
+      this.load.image("expert","asserts/Expert.png");
+      this.load.image("red","asserts/red.png");
+      this.load.image("blue","asserts/blue.png");
+      this.load.image("grey","asserts/grey.png");
+      this.load.image("green","asserts/green.png");
   
     }
   
