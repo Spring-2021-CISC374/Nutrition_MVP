@@ -53,8 +53,6 @@ class level extends Phaser.Scene {
         //this.up.play("up_anim");
 
         
-
-
         const backButton = this.add.text(config.width - 200, config.height - 40, 'Back To Menu Page', {
             font: "20px Arial",
             fill: 'black'
