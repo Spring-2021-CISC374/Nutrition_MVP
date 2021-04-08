@@ -5,8 +5,8 @@ class level extends Phaser.Scene {
 
   
     create() {
-        var x = 180
-        var y = 410    
+        var x = 100;
+        var y = 100;    
 
         this.background = this.add.image(0, 0, "map").setOrigin(0).setScale(1.9);
         this.level1 = this.add.image(205, 310, "level1").setOrigin(0).setScale(0.2)
@@ -63,7 +63,7 @@ class level extends Phaser.Scene {
             .on('pointerdown', () => this.updateScene());
 
         this.physics.add.collider(this.down, this.level1, function(down, level1){
-            updateToLevel1();
+            this.updateToLevel1();
         });
         this.physics.add.collider(this.down, this.level2, function(down, level2){
             updateToLevel2();
@@ -84,18 +84,38 @@ class level extends Phaser.Scene {
         if (this.cursorKeys.left.isDown) {
             //this.left = this.add.sprite(300, 200, "left").setScale(1.5);
             //this.left.play("left_anim")
-            this.down.x -= 2;
+            if(this.down.x<=0){
+                this.down.x=0;
+            }
+            else{
+                this.down.x -= 1;
+            }
         }
         else if(this.cursorKeys.right.isDown){
             //this.right = this.add.sprite(this.down.x, this.down.y, "left").setScale(1.5);
             //this.right.play("right_anim")
-            this.down.x += 2;
+            if(this.down.x>=935){
+                this.down.x=935;
+            }
+            else{
+                this.down.x += 1;
+            }
         }
         else if (this.cursorKeys.up.isDown){
-            this.down.y -= 2;
+            if(this.down.y<=0){
+                this.down.y=0;
+            }
+            else{
+                this.down.y -= 1;
+            }
         }
         else if (this.cursorKeys.down.isDown){
-            this.down.y += 2;
+            if(this.down.y>=600){
+                this.down.y=600;
+            }
+            else{
+                this.down.y += 1;
+            }
         }
     }
     
