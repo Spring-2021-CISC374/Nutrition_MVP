@@ -45,10 +45,10 @@ class GameMenu extends Phaser.Scene {
 
 
   updateToEasyScene() {
-    this.scene.start("level");
+    this.scene.start("Easy");
   }
   updateToNormalScene() {
-    this.scene.start("level");
+    this.scene.start("Normal");
   }
   updateToHardScene() {
     this.scene.start("level");
