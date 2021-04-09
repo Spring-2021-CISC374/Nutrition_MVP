@@ -31,22 +31,11 @@ class Loading extends Phaser.Scene {
       this.load.image("level2","asserts/l2.png");
       this.load.image("level3","asserts/l3.png");
       this.load.image("level4","asserts/l4.png");
-      this.load.spritesheet("down", "asserts/player/down.png", {
-        frameWidth: 32,
-        frameHeight: 35
+      this.load.spritesheet("player", "asserts/player/Moving.png", {
+        frameWidth: 54,
+        frameHeight: 60
       });
-      this.load.spritesheet("left", "asserts/player/left.png", {
-        frameWidth: 32,
-        frameHeight: 36
-      });
-      this.load.spritesheet("right", "asserts/player/right.png", {
-        frameWidth: 32,
-        frameHeight: 35
-      });
-      this.load.spritesheet("up", "asserts/player/up.png", {
-        frameWidth: 32,
-        frameHeight: 35
-      });
+      
 
     }
   

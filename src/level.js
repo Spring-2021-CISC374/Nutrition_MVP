@@ -5,8 +5,8 @@ class level extends Phaser.Scene {
 
   
     create() {
-        var x = 100;
-        var y = 100;    
+        var x = 200;
+        var y = 450;    
 
         this.background = this.add.image(0, 0, "map").setOrigin(0).setScale(1.9);
         this.level1 = this.add.image(205, 310, "level1").setOrigin(0).setScale(0.2)
@@ -14,21 +14,23 @@ class level extends Phaser.Scene {
         this.level3 = this.add.image(550, 170, "level3").setOrigin(0).setScale(0.2)
         this.level4 = this.add.image(700, 170, "level4").setOrigin(0).setScale(0.2)
 
-        
+
+
+        this.player = this.physics.add.sprite(x, y, 'player').setScale(0.5);
+       
+        this.cursors = this.input.keyboard.createCursorKeys();
+
         this.anims.create({
-            key: "down_anim",
-            frames: this.anims.generateFrameNumbers("down"),
+            key: 'down',
+            frames: this.anims.generateFrameNumbers('player',{start: 1, end: 7}),
             frameRate: 4,
             repeat: -1
         });
-        this.down = this.add.sprite(x, y, "down").setScale(1.5)
-        this.down.play("down_anim");
-        this.cursorKeys = this.input.keyboard.createCursorKeys();
 
         //this.left = this.add.sprite(500, 200, "left").setScale(1.5)
         this.anims.create({
-            key: "left_anim",
-            frames: this.anims.generateFrameNumbers("left"),
+            key: 'left',
+            frames: this.anims.generateFrameNumbers('player',{start: 8, end: 15}),
             frameRate: 4,
             repeat: -1
         });
@@ -36,8 +38,8 @@ class level extends Phaser.Scene {
 
         //this.right = this.add.sprite(200, 500, "right").setScale(1.5)
         this.anims.create({
-            key: "right_anim",
-            frames: this.anims.generateFrameNumbers("right"),
+            key: 'right',
+            frames: this.anims.generateFrameNumbers('player',{start: 16, end: 23}),
             frameRate: 4,
             repeat: -1
         });
@@ -45,12 +47,21 @@ class level extends Phaser.Scene {
 
         //this.up = this.add.sprite(500, 500, "up").setScale(1.5)
         this.anims.create({
-            key: "up_anim",
-            frames: this.anims.generateFrameNumbers("up"),
+            key: 'up',
+            frames: this.anims.generateFrameNumbers('player',{start: 24, end: 31}),
             frameRate: 4,
             repeat: -1
         });
+
+        this.anims.create({
+            key: 'turn',
+            frames: {key: 'player',frame: 0},
+            frameRate: 1,
+            repeat: -1
+
+        });
         //this.up.play("up_anim");
+
 
         
         const backButton = this.add.text(config.width - 200, config.height - 40, 'Back To Menu Page', {
@@ -60,65 +71,47 @@ class level extends Phaser.Scene {
             .setInteractive()
             .on('pointerdown', () => this.updateScene());
 
-        this.physics.add.collider(this.down, this.level1, function(down, level1){
-            this.updateToLevel1();
+        this.physics.add.collider(this.player, this.level1, function(player, level1){
+            updateToLevel1();
         });
-        this.physics.add.collider(this.down, this.level2, function(down, level2){
+        this.physics.add.collider(this.player, this.level2, function(player, level2){
             updateToLevel2();
         });
-        this.physics.add.collider(this.down, this.level3, function(down, level3){
+        this.physics.add.collider(this.player, this.level3, function(player, level3){
             updateToLevel3();
         });
-        this.physics.add.collider(this.down, this.level4, function(down, level4){
+        this.physics.add.collider(this.player, this.level4, function(player, level4){
             updateToLevel4();
         });
     }
 
+
     updateScene() {
         this.scene.start("GameMenu");
     }
-
-    movePlayerManager() {
-        if (this.cursorKeys.left.isDown) {
-            //this.left = this.add.sprite(300, 200, "left").setScale(1.5);
-            //this.left.play("left_anim")
-            if(this.down.x<=0){
-                this.down.x=0;
-            }
-            else{
-                this.down.x -= 1;
-            }
-        }
-        else if(this.cursorKeys.right.isDown){
-            //this.right = this.add.sprite(this.down.x, this.down.y, "left").setScale(1.5);
-            //this.right.play("right_anim")
-            if(this.down.x>=935){
-                this.down.x=935;
-            }
-            else{
-                this.down.x += 1;
-            }
-        }
-        else if (this.cursorKeys.up.isDown){
-            if(this.down.y<=0){
-                this.down.y=0;
-            }
-            else{
-                this.down.y -= 1;
-            }
-        }
-        else if (this.cursorKeys.down.isDown){
-            if(this.down.y>=600){
-                this.down.y=600;
-            }
-            else{
-                this.down.y += 1;
-            }
-        }
-    }
     
     update(){
-        this.movePlayerManager();
+        if (this.cursors.left.isDown) {
+            this.player.setVelocityX(-160);
+            this.player.play('left',true);
+        }
+        else if(this.cursors.right.isDown){
+            this.player.setVelocityX(160);
+            this.player.anims.play('right', true);
+        }
+        else if (this.cursors.up.isDown){
+            this.player.setVelocityY(-160);
+            this.player.anims.play('up', true);
+        }
+        else if (this.cursors.down.isDown){
+            this.player.setVelocityY(160);
+            this.player.anims.play('down', true);
+        }else{
+            this.player.setVelocity(0,0);
+            this.player.anims.play('down');
+    
+
+        }
     }
 
     updateToLevel1(){
