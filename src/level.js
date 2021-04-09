@@ -9,12 +9,13 @@ class level extends Phaser.Scene {
         var y = 450;    
 
         this.background = this.add.image(0, 0, "map").setOrigin(0).setScale(1.9);
-        this.level1 = this.add.image(205, 310, "level1").setOrigin(0).setScale(0.2)
-        this.level2 = this.add.image(455, 450, "level2").setOrigin(0).setScale(0.2)
-        this.level3 = this.add.image(550, 170, "level3").setOrigin(0).setScale(0.2)
-        this.level4 = this.add.image(700, 170, "level4").setOrigin(0).setScale(0.2)
 
+        this.platforms = this.physics.add.staticGroup();
 
+        this.platforms.create(205, 310, "level1").setOrigin(0).setScale(0.2);
+        this.platforms.create(455, 450, "level2").setOrigin(0).setScale(0.2);
+        this.platforms.create(550, 170, "level3").setOrigin(0).setScale(0.2);
+        this.platforms.create(700, 170, "level4").setOrigin(0).setScale(0.2);
 
         this.player = this.physics.add.sprite(x, y, 'player').setScale(0.5);
        
@@ -71,19 +72,20 @@ class level extends Phaser.Scene {
             .setInteractive()
             .on('pointerdown', () => this.updateScene());
 
-        this.physics.add.collider(this.player, this.level1, function(player, level1){
-            updateToLevel1();
+        this.physics.add.collider(this.player, this.platforms, function(player, level1){
+            this.updateToLevel1;
         });
-        this.physics.add.collider(this.player, this.level2, function(player, level2){
-            updateToLevel2();
+        this.physics.add.collider(this.player, this.platforms, function(player, level2){
+            this.updateToLevel2;
         });
-        this.physics.add.collider(this.player, this.level3, function(player, level3){
-            updateToLevel3();
+        this.physics.add.collider(this.player, this.platforms, function(player, level3){
+            this.updateToLevel3;
         });
-        this.physics.add.collider(this.player, this.level4, function(player, level4){
-            updateToLevel4();
+        this.physics.add.collider(this.player, this.platforms, function(player, level4){
+            this.updateToLevel4;
         });
     }
+
 
 
     updateScene() {
