@@ -5,10 +5,12 @@ class Easy extends Phaser.Scene {
     }
     scoreText;
     score =0;
+    whether=0;
     create() {
+      this.whether=0;
       this.table = this.add.image(100, 150, "table").setOrigin(0).setScale(1.5)
       this.apple = this.add.image(100, 150, "apple").setOrigin(0).setScale(1).setInteractive()
-      .on('pointerdown', () => this.appleInfo());
+      .on('pointerdown',() => this.appleInfo());
       this.chicken = this.add.image(200, 150, "chicken").setOrigin(0).setScale(1).setInteractive()
       .on('pointerdown', () => this.chickInfo());
       this.popcorn = this.add.image(300, 150, "popcorn").setOrigin(0).setScale(1).setInteractive()
@@ -31,6 +33,12 @@ class Easy extends Phaser.Scene {
         })
         .setInteractive()
         .on('pointerdown', () => this.updateScene());
+      const whetherButton = this.add.text(config.width - 140, config.height - 580, 'info/add', {
+          font: "20px Arial",
+          fill: 'black'
+          })
+          .setInteractive()
+          .on('pointerdown', () => this.whether());
 
       this.scoreText = this.add.text(16, 16, 'The recent cal: 0', { fontSize: '32px', fill: '#000' });
       this.score = 0;
@@ -43,14 +51,25 @@ class Easy extends Phaser.Scene {
     updateScene() {
       this.scene.start("level");
     }
-    addfood(){
-      this.score+=10;
-      this.scoreText.setText('The recent cal: '+ this.score);
+    whether(){
+      alert("we");
+      if(this.whether==0){
+        this.whether=1;
+        alert("the recent whther is 1");
+      }
+      else{
+        this.whether=0;
+        alert("the recent whther is 0");
+      }
     }
     appleInfo(){
-      this.score+=10;
-      this.scoreText.setText('The recent cal: '+ this.score);
+      if(this.whether==0){
+        this.score+=10;
+        this.scoreText.setText('The recent cal: '+ this.score);
+      }
+      else{
       alert("This is an apple about 150 grams, edible parts about 135 grams, contains 60 kcal of energy");
+      }
     }
     chickInfo(){
       this.score+=10;
