@@ -3,7 +3,8 @@ class Easy extends Phaser.Scene {
     constructor() {
       super("Easy");
     }
-  
+    scoreText;
+    score =0;
     create() {
       this.table = this.add.image(100, 150, "table").setOrigin(0).setScale(1.5)
       this.apple = this.add.image(100, 150, "apple").setOrigin(0).setScale(1).setInteractive()
@@ -30,17 +31,33 @@ class Easy extends Phaser.Scene {
         })
         .setInteractive()
         .on('pointerdown', () => this.updateScene());
+
+      this.scoreText = this.add.text(16, 16, 'The recent cal: 0', { fontSize: '32px', fill: '#000' });
+      this.score = 0;
     }
+
+    // update(){
+
+    // }
   
     updateScene() {
       this.scene.start("level");
     }
+    addfood(){
+      this.score+=10;
+      this.scoreText.setText('The recent cal: '+ this.score);
+    }
     appleInfo(){
+      this.score+=10;
+      this.scoreText.setText('The recent cal: '+ this.score);
       alert("This is an apple about 150 grams, edible parts about 135 grams, contains 60 kcal of energy");
     }
     chickInfo(){
+      this.score+=10;
+      this.scoreText.setText('The recent cal: '+ this.score);
       alert("This is a roast chicken. It weighs about 500 grams and contains 972 kcal of energy");
     }
+    
 
     popcornInfo(){
       alert("This is a bucket of popcorn, weighing about 300 grams, and contains 1000 kcal of energy");
