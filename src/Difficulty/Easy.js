@@ -58,7 +58,7 @@ class Easy extends Phaser.Scene {
 
       this.CscoreText = this.add.text(16, 16, 'The total cal(kc): 0', { font: '20px Arial', fill: '#000' });
       this.Cscore = 0;
-      this.PscoreText = this.add.text(16, 40, 'The total protein(mg): 0', { font: '20px Arial', fill: '#000' });
+      this.PscoreText = this.add.text(16, 40, 'The total protein(g): 0', { font: '20px Arial', fill: '#000' });
       this.Pscore=0;
       this.VscoreText = this.add.text(16, 64, 'The total V(mg): 0', { font: '20px Arial', fill: '#000' });
       this.Vscore=0;
@@ -73,13 +73,14 @@ class Easy extends Phaser.Scene {
 
     initialize(){
       this.Cscore=0;
-      this.CscoreText.setText('The total cal: '+ this.Cscore);
+      this.CscoreText.setText('The total cal(kc): '+ this.Cscore);
       this.Pscore=0;
       this.PscoreText.setText('The total protein(g): '+this.Pscore);
       this.Vscore=0;
       this.VscoreText.setText('The total V(mg): '+this.Vscore);
       this.Carbscore =0;
       this.carbscoreText.setText('The total Carbon(g): '+this.Carbscore);
+      alert("You have initialized the nutrition data successfully!");
     }
 
     whether1(){
@@ -116,7 +117,7 @@ class Easy extends Phaser.Scene {
         this.addCarbon(1);
       }
       else{
-      alert("This is an apple about 130 grams, edible parts about 100 grams, contains 52 kcal of energy, 16 grams proteins");
+      alert("This is an apple about 100 grams, edible parts about 100 grams, contains "+this.callist[0]+" kcal of energy, "+this.prolist[0]+" grams proteins, "+this.vitaminClist[0]+" milligrams vitamin C and "+this.carbohydratelist[0]+"grams carbohydrate");
       }
     }
     chickInfo(){
@@ -127,7 +128,7 @@ class Easy extends Phaser.Scene {
         this.addCarbon(2);
       }
       else{
-      alert("This is a roast chicken. It weighs about 100 grams and contains 181 kcal of energy");
+        alert("This is rost cicken leg about 100 grams, contains "+this.callist[1]+" kcal of energy, "+this.prolist[1]+" grams proteins, "+this.vitaminClist[1]+" milligrams vitamin C and "+this.carbohydratelist[1]+"grams carbohydrate");
       }
     }
     
@@ -140,7 +141,7 @@ class Easy extends Phaser.Scene {
         this.addCarbon(3);
       }
       else{
-      alert("This is a bucket of popcorn, weighing about 300 grams, and contains 1000 kcal of energy");
+      alert("This is a bucket of popcorn, weighing about 100 grams, and contains "+this.callist[2]+" kcal of energy, "+this.prolist[2]+" grams proteins, "+this.vitaminClist[2]+" milligrams vitamin C and "+this.carbohydratelist[2]+"grams carbohydrate");
       }
     }
 
@@ -152,7 +153,7 @@ class Easy extends Phaser.Scene {
         this.addCarbon(4);
       }
       else{
-      alert("This is a cookie that weighs about 6 grams and contains 26 kilocalories");
+      alert("This is a cookie that weighs about 100 grams and contains "+this.callist[3]+" kcal of energy, "+this.prolist[3]+" grams proteins, "+this.vitaminClist[3]+" milligrams vitamin C and "+this.carbohydratelist[3]+"grams carbohydrate");
       }
     }
 
@@ -164,7 +165,7 @@ class Easy extends Phaser.Scene {
         this.addCarbon(5);
       }
       else{
-      alert("This is a cake that weighs about 80 grams and contains 278 kilocalories");
+      alert("This is a cake that weighs about 100 grams and contains "+this.callist[4]+" kcal of energy, "+this.prolist[4]+" grams proteins, "+this.vitaminClist[4]+" milligrams vitamin C and "+this.carbohydratelist[4]+"grams carbohydrate");
       }
     }
 
@@ -176,7 +177,7 @@ class Easy extends Phaser.Scene {
         this.addCarbon(6);
       }
       else{
-      alert("This is a sushi that weighs about 100 grams and contains 120 kilocalories");
+      alert("This is a sushi that weighs about 100 grams and contains "+this.callist[5]+" kcal of energy, "+this.prolist[5]+" grams proteins, "+this.vitaminClist[5]+" milligrams vitamin C and "+this.carbohydratelist[5]+"grams carbohydrate");
       }
     }
 
@@ -188,7 +189,7 @@ class Easy extends Phaser.Scene {
         this.addCarbon(7);
       }
       else{
-      alert("This is a hamberger that weighs about 120 grams and contains 354 kilocalories");
+      alert("This is a hamberger that weighs about 100 grams and contains "+this.callist[6]+" kcal of energy, "+this.prolist[6]+" grams proteins, "+this.vitaminClist[6]+" milligrams vitamin C and "+this.carbohydratelist[6]+"grams carbohydrate");
       }
     }
 
@@ -200,7 +201,7 @@ class Easy extends Phaser.Scene {
         this.addCarbon(8);
       }
       else{
-      alert("This is a 66 gram ice cream with 137 kilocalories");
+      alert("This is a 100 grams ice cream and contains "+this.callist[7]+" kcal of energy, "+this.prolist[7]+" grams proteins, "+this.vitaminClist[7]+" milligrams vitamin C and "+this.carbohydratelist[7]+"grams carbohydrate");
       }
     }
 
@@ -212,7 +213,7 @@ class Easy extends Phaser.Scene {
         this.addCarbon(9);
       }
       else{
-      alert("This is a glass of 249 grams of juice with 136 kilocalories");
+      alert("This is a glass of 249 grams of juice and contains "+this.callist[8]+" kcal of energy, "+this.prolist[8]+" grams proteins, "+this.vitaminClist[8]+" milligrams vitamin C and "+this.carbohydratelist[8]+"grams carbohydrate");
       }
     }
   }
