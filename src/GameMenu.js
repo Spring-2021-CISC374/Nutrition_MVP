@@ -2,7 +2,7 @@ class GameMenu extends Phaser.Scene {
   constructor() {
     super("GameMenu");
   }
-
+  appleobject =0;
   create() {
     this.background = this.add.tileSprite(0, 0, config.width, config.height, "map").setOrigin(0).setScale(1.9);
     this.background.tilePositionX += 200; 
