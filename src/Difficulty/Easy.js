@@ -2,6 +2,14 @@ class Easy extends Phaser.Scene {
     constructor() {
       super("Easy");
     }
+    callist = [52, 181, 413.5,433, 347,123.5, 295.5, 74, 26];//kc
+    prolist = [0.2, 16, 10, 9, 8.6, 7, 23.8, 2.2, 0.9];//g
+    vitaminClist = [4, 0, 0, 3, 0, 3, 0, 0, 11];//mg
+    carbohydratelist = [12, 0, 55, 70.6, 66.7, 18.5, 1.1, 14.3, 5.2];//g
+    VscoreText;
+    Vscore=0;
+    carbscoreText;
+    Carbscore=0;
     CscoreText;
     Cscore =0;
     PscoreText;
@@ -48,10 +56,14 @@ class Easy extends Phaser.Scene {
             .setInteractive()
             .on('pointerdown', () => this.initialize());
 
-      this.CscoreText = this.add.text(16, 16, 'The total cal: 0', { font: '20px Arial', fill: '#000' });
+      this.CscoreText = this.add.text(16, 16, 'The total cal(kc): 0', { font: '20px Arial', fill: '#000' });
       this.Cscore = 0;
-      this.PscoreText = this.add.text(16, 40, 'The total protein(g): 0', { font: '20px Arial', fill: '#000' });
+      this.PscoreText = this.add.text(16, 40, 'The total protein(mg): 0', { font: '20px Arial', fill: '#000' });
       this.Pscore=0;
+      this.VscoreText = this.add.text(16, 64, 'The total V(mg): 0', { font: '20px Arial', fill: '#000' });
+      this.Vscore=0;
+      this.carbscoreText = this.add.text(16, 88, 'The total Carbon(g): 0', { font: '20px Arial', fill: '#000' });
+      this.Carbscore=0;
     }
 
     updateScene() {
@@ -64,6 +76,10 @@ class Easy extends Phaser.Scene {
       this.CscoreText.setText('The total cal: '+ this.Cscore);
       this.Pscore=0;
       this.PscoreText.setText('The total protein(g): '+this.Pscore);
+      this.Vscore=0;
+      this.VscoreText.setText('The total V(mg): '+this.Vscore);
+      this.Carbscore =0;
+      this.carbscoreText.setText('The total Carbon(g): '+this.Carbscore);
     }
 
     whether1(){
@@ -76,38 +92,52 @@ class Easy extends Phaser.Scene {
         alert("You can add or delete food now!");
       }
     }
-    addcal(){
-      this.Cscore+=10;
+    addcal(index){
+      this.Cscore+=this.callist[index-1];
       this.CscoreText.setText('The total cal: '+ this.Cscore);
     }
-    addPro(){
-      this.Pscore+=12;
+    addPro(index){
+      this.Pscore+=this.prolist[index-1];
       this.PscoreText.setText('The total protein(g): '+ this.Pscore);
+    }
+    addV(index){
+      this.Vscore+=this.vitaminClist[index-1];
+      this.VscoreText.setText('The total V(mg): '+ this.Vscore);
+    }
+    addCarbon(index){
+      this.Carbscore+=this.carbohydratelist[index-1];
+      this.carbscoreText.setText('The total Carbon(g): '+this.Carbscore);
     }
     appleInfo(){
       if(this.whether==0){
-        this.addcal();
-        this.addPro();
+        this.addcal(1);
+        this.addPro(1);
+        this.addV(1);
+        this.addCarbon(1);
       }
       else{
-      alert("This is an apple about 150 grams, edible parts about 135 grams, contains 60 kcal of energy");
+      alert("This is an apple about 130 grams, edible parts about 100 grams, contains 52 kcal of energy, 16 grams proteins");
       }
     }
     chickInfo(){
       if(this.whether==0){
-        this.addcal();
-        this.addPro();
+        this.addcal(2);
+        this.addPro(2);
+        this.addV(2);
+        this.addCarbon(2);
       }
       else{
-      alert("This is a roast chicken. It weighs about 500 grams and contains 972 kcal of energy");
+      alert("This is a roast chicken. It weighs about 100 grams and contains 181 kcal of energy");
       }
     }
     
 
     popcornInfo(){
       if(this.whether==0){
-        this.addcal();
-        this.addPro();
+        this.addcal(3);
+        this.addPro(3);
+        this.addV(3);
+        this.addCarbon(3);
       }
       else{
       alert("This is a bucket of popcorn, weighing about 300 grams, and contains 1000 kcal of energy");
@@ -116,8 +146,10 @@ class Easy extends Phaser.Scene {
 
     cookieInfo(){
       if(this.whether==0){
-        this.addcal();
-        this.addPro();
+        this.addcal(4);
+        this.addPro(4);
+        this.addV(4);
+        this.addCarbon(4);
       }
       else{
       alert("This is a cookie that weighs about 6 grams and contains 26 kilocalories");
@@ -126,8 +158,10 @@ class Easy extends Phaser.Scene {
 
     cupcakeInfo(){
       if(this.whether==0){
-        this.addcal();
-        this.addPro();
+        this.addcal(5);
+        this.addPro(5);
+        this.addV(5);
+        this.addCarbon(5);
       }
       else{
       alert("This is a cake that weighs about 80 grams and contains 278 kilocalories");
@@ -136,8 +170,10 @@ class Easy extends Phaser.Scene {
 
     sushiInfo(){
       if(this.whether==0){
-        this.addcal();
-        this.addPro();
+        this.addcal(6);
+        this.addPro(6);
+        this.addV(6);
+        this.addCarbon(6);
       }
       else{
       alert("This is a sushi that weighs about 100 grams and contains 120 kilocalories");
@@ -146,8 +182,10 @@ class Easy extends Phaser.Scene {
 
     hamgurgerInfo(){
       if(this.whether==0){
-        this.addcal();
-        this.addPro();
+        this.addcal(7);
+        this.addPro(7);
+        this.addV(7);
+        this.addCarbon(7);
       }
       else{
       alert("This is a hamberger that weighs about 120 grams and contains 354 kilocalories");
@@ -156,8 +194,10 @@ class Easy extends Phaser.Scene {
 
     incecreamInfo(){
       if(this.whether==0){
-        this.addcal();
-        this.addPro();
+        this.addcal(8);
+        this.addPro(8);
+        this.addV(8);
+        this.addCarbon(8);
       }
       else{
       alert("This is a 66 gram ice cream with 137 kilocalories");
@@ -166,8 +206,10 @@ class Easy extends Phaser.Scene {
 
     juiceInfo(){
       if(this.whether==0){
-        this.addcal();
-        this.addPro();
+        this.addcal(9);
+        this.addPro(9);
+        this.addV(9);
+        this.addCarbon(9);
       }
       else{
       alert("This is a glass of 249 grams of juice with 136 kilocalories");
