@@ -31,6 +31,7 @@ class Loading extends Phaser.Scene {
       this.load.image("level2","asserts/l2.png");
       this.load.image("level3","asserts/l3.png");
       this.load.image("level4","asserts/l4.png");
+      this.load.image("table","asserts/food/table.png");
       this.load.spritesheet("player", "asserts/player/Moving.png", {
         frameWidth: 54,
         frameHeight: 60

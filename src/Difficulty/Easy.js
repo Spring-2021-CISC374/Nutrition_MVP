@@ -17,6 +17,8 @@ class Easy extends Phaser.Scene {
   Pscore =0;
   whether=0;
   create() {
+    this.background = this.add.image(0, 190, "table").setOrigin(0);
+    this.background.scaleX = 2;
     this.whether=0;
     // this.table = this.add.image(100, 150, "table").setOrigin(0).setScale(1.5)
     this.apple = this.add.image(100, 250, "apple").setOrigin(0).setScale(1).setInteractive()
