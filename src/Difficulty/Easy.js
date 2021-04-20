@@ -81,14 +81,29 @@ class Easy extends Phaser.Scene {
 
   submit(){
     var infor = "";
-    if(this.Cscore<2300){
-      infor = infor +"A 12-year-old should consume 2300 kcal a day at least.\n";
+    if(this.Cscore<2300||this.Cscore>2900){
+      infor = infor +"A 12-year-old should consume 2300~2900 kcal food a day at least.\n";
+    }
+    else{
+      infor = infor +"The menu you make is in line with a 12-year-old's nutritional needs in terms of calories\n"
     }
     if(this.Pscore<70||this.Pscore>75){
-      infor = infor +"A 12-year-old should consume 70 ~ 75 grams proteins a day."
+      infor = infor +"A 12-year-old should consume 70 ~ 75 grams proteins a day.\n"
+    }
+    else{
+      infor = infor +"The menu you make is in line with a 12-year-old's nutritional needs in terms of proteins\n"
     }
     if(this.Vscore<65||this.carbohydratelist.Vscore>100){
-      infor = infor +"A 12-year-old should consume 65~100 milligrams vitamin a day."
+      infor = infor +"A 12-year-old should consume 65~100 milligrams vitamin a day.\n"
+    }
+    else{
+      infor = infor +"The menu you make is in line with a 12-year-old's nutritional needs in terms of vitamin\n"
+    }
+    if(this.Carbscore<120||this.Carbscore>150){
+      infor = infor +"A 12-year-old should consume 120~150 grams carbonhydrates a day."
+    }
+    else{
+      infor = infor +"The menu you make is in line with a 12-year-old's nutritional needs in terms of carbonhydrates\n"
     }
     alert(infor);
   }
